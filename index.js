@@ -33,7 +33,8 @@ function gm (source, height, color) {
   this._in = [];
   this._out = [];
   this._outputFormat = null;
-  this._subCommand = 'convert';
+  var os=process.platform;
+  this._subCommand = os.platform=="win32"?"magick":'convert';
 
   if (source instanceof Stream) {
     this.sourceStream = source;
